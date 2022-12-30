@@ -25,6 +25,7 @@
 <script type="module">
   const div = document.createElement('div')
   div.textContent = 'Hello World'
-  const root = document.getElementById('root')
+  const root = document.createElement('root')
   root.append(div)
+  document.body.append(root)
 </script>

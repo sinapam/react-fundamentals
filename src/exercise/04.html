@@ -6,20 +6,8 @@
   <script src="https://unpkg.com/react@18.1.0/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18.1.0/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone@7.12.4/babel.js"></script>
+  <script src="https://unpkg.com/prop-types@15.7.2/prop-types.js"></script>
   <script type="text/babel">
-    const PropTypes = {
-      greetingType(props, propName, componentName) {
-        if (!(propName in props)) {
-          return new Error(`Missing ${propName}`)
-        }
-      },
-      subjectType(props, propName, componentName) {
-        if (!(propName in props)) {
-          return new Error(`Missing ${propName}`)
-        }
-      },
-    }
-
     function Message({greeting, subject}) {
       return (
         <div className="message">
@@ -29,14 +17,14 @@
     }
 
     Message.propTypes = {
-      greeting: PropTypes.greetingType,
-      subject: PropTypes.subjectType,
+      greeting: PropTypes.string.isRequired,
+      subject: PropTypes.string.isRequired,
     }
 
     const element = (
       <div className="container">
         <Message greeting="Hi" subject="World" />
-        <Message greeting="Goodbye" subject="World" />
+        <Message greeting="Bye" subject="World" />
       </div>
     )
 
